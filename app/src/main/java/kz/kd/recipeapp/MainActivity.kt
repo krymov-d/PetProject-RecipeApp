@@ -4,43 +4,55 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import kz.kd.recipeapp.ui.theme.RecipeAppTheme
+import androidx.compose.ui.unit.dp
+import kz.kd.recipeapp.components.SearchBar
+import kz.kd.recipeapp.ui.theme.AppTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            RecipeAppTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
-                ) {
-                    Greeting("Android")
-                }
+            AppTheme {
+                MyApp()
             }
         }
     }
 }
 
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
+fun MyApp(
+    modifier: Modifier = Modifier
+) {
+    var textFieldValue by remember { mutableStateOf("") }
+
+    Surface(
+        shape = MaterialTheme.shapes.medium,
+        color = MaterialTheme.colorScheme.surface,
         modifier = modifier
-    )
+            .fillMaxSize()
+            .padding(horizontal = 16.dp)
+    ) {
+        SearchBar(
+            textFieldValue = textFieldValue,
+            textFieldOnValueChange = { newValue -> textFieldValue = newValue },
+            searchButtonOnClick = { /*TODO*/ })
+    }
 }
 
 @Preview(showBackground = true)
 @Composable
-fun GreetingPreview() {
-    RecipeAppTheme {
-        Greeting("Android")
+fun MyAppPreview() {
+    AppTheme {
+        MyApp()
     }
 }
