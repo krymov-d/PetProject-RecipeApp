@@ -1,11 +1,10 @@
 package kz.kd.recipeapp.components
 
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Search
+import androidx.compose.material3.Button
 import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
-import androidx.compose.material3.IconButtonDefaults
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
@@ -14,27 +13,29 @@ import kz.kd.recipeapp.ui.theme.AppTheme
 @Composable
 fun SearchButton(
     searchButtonOnClick: () -> Unit,
+    searchButtonEnabled: Boolean,
     modifier: Modifier = Modifier
 ) {
-    IconButton(
+    Button(
         onClick = searchButtonOnClick,
-        colors = IconButtonDefaults.iconButtonColors(
-            containerColor = MaterialTheme.colorScheme.primaryContainer,
-            contentColor = MaterialTheme.colorScheme.surface
-        ),
+        enabled = searchButtonEnabled,
+        shape = RoundedCornerShape(topStartPercent = 50, bottomStartPercent = 50),
         modifier = modifier
     ) {
         Icon(
             imageVector = Icons.Default.Search,
-            contentDescription = null,
+            contentDescription = null
         )
     }
 }
 
-@Preview
+@Preview(showBackground = true)
 @Composable
 fun SearchButtonPreview() {
     AppTheme {
-        SearchButton(searchButtonOnClick = {})
+        SearchButton(
+            searchButtonOnClick = {},
+            searchButtonEnabled = true,
+        )
     }
 }
