@@ -35,6 +35,7 @@ fun SearchBar(
             width = 1.dp,
             color = MaterialTheme.colorScheme.outlineVariant
         ),
+        color = MaterialTheme.colorScheme.tertiaryContainer,
         modifier = modifier
     ) {
         Row(

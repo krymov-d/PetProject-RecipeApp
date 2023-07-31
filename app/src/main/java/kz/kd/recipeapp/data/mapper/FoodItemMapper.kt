@@ -8,8 +8,15 @@ fun toFoodItem(searchResponse: SearchResponse): List<FoodItem> {
         FoodItem(
             foodId = hint.food.foodId,
             label = hint.food.label,
-            calories = hint.food.nutrient.ENERC_KCAL,
-            image = hint.food.image
+            calories = 0f,
+            image = "https://www.edamam.com/food-img/d33/d338229d774a743f7858f6764e095878.jpg"
         )
+
+//        FoodItem(
+//            foodId = hint.food.foodId,
+//            label = hint.food.label,
+//            calories = hint.food.nutrient.ENERC_KCAL,
+//            image = hint.food.image
+//        )
     }
 }
