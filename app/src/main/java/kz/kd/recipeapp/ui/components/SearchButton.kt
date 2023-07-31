@@ -1,4 +1,4 @@
-package kz.kd.recipeapp.components
+package kz.kd.recipeapp.ui.components
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons

@@ -1,4 +1,4 @@
-package kz.kd.recipeapp.components
+package kz.kd.recipeapp.ui.components
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Row

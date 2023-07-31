@@ -1,47 +1,19 @@
 package kz.kd.recipeapp.data.network
 
+import kz.kd.recipeapp.constants.APP_ID
+import kz.kd.recipeapp.constants.APP_KEY
+import kz.kd.recipeapp.constants.NUTRITION_TYPE
+import kz.kd.recipeapp.data.models.SearchResponse
 import retrofit2.http.*
 
 interface MainApi {
 
-//    @GET("posts")
-//    suspend fun getPosts(): List<Post>
-//
-//    @GET("posts/{id}")
-//    suspend fun getPost(@Path("id") id: Int): Post
-//
-//    @GET("comments")
-//    suspend fun getPostComments(@Query("postId") postId: Int): List<Comment>
-//
-//    @POST("posts")
-//    suspend fun submitPost(@Body post: PostRequest): Post
-//
-//    @GET("clients")
-//    suspend fun getAllUsers(
-//        @Header("Authorization") userToken: String,
-//        @Query("userId") userId: String,
-//    ): List<User>
-//
-//    @GET("room/{roomId}")
-//    suspend fun getRoomDetails(
-//        @Header("Authorization") userToken: String,
-//        @Path("roomId") roomId: String,
-//        @Query("userId") userId: String,
-//    ): RemoteRoom
-//
-//    @POST("rooms/add")
-//    suspend fun addNewRoom(
-//        @Header("Authorization") userToken: String,
-//        @Query("userId") userId: String,
-//        @Body newRoom: RemoteRoom
-//    ): RemoteRoom
-//
-//    @DELETE("reservation/delete")
-//    suspend fun removeBooking(
-//        @Header("Authorization") userToken: String,
-//        @Query("reservationId") reservationId: String,
-//        @Query("roomId") roomId: String,
-//        @Query("userId") userId: String
-//    ): RemoveBookingResponse
+    @GET("parser")
+    suspend fun getFoodItems(
+        @Query("app_id") app_id: String = APP_ID,
+        @Query("app_key") app_key: String = APP_KEY,
+        @Query("nutrition-type") nutrition_type: String = NUTRITION_TYPE,
+        @Query("ingr") ingr: String,
+    ): SearchResponse
 
 }
