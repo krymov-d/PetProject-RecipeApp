@@ -4,8 +4,8 @@ data class Food(
     val foodId: String,
     val label: String,
     val knownAs: String,
-    val nutrient: Nutrient,
+    val nutrients: Nutrient,
     val category: String,
     val categoryLabel: String,
-    val image: String,
+    val image: String?,
 )
